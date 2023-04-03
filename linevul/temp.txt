@@ -1,0 +1,57 @@
+Original Lines,***********  ['<s>staticint__net_initicmp_sk_init(structnet*net)', '{', '', 'inti,err;', '', '', 'net->ipv4.icmp_sk=', '', '', 'kzalloc(nr_cpu_ids*sizeof(structsock*),GFP_KERNEL);', '', 'if(net->ipv4.icmp_sk==NULL)', '', '', 'return-ENOMEM;', '', '', 'for_each_possible_cpu(i){', '', '', 'structsock*sk;', '', '', '', 'err=inet_ctl_sock_create(&sk,PF_INET,', '', '', '', '', '', 'SOCK_RAW,IPPROTO_ICMP,net);', '', '', 'if(err<0)', '', '', '', 'gotofail;', '', '', '', 'net->ipv4.icmp_sk[i]=sk;', '', '', '', '/*Enoughspacefor264KICMPpackets,including', '', '', '*sk_buffstructoverhead.', '', '', '*/', '', '', 'sk->sk_sndbuf=', '', '', '', '(2*((64*1024)+sizeof(structsk_buff)));', '', '', '', '/*', '', '', '*Speedupsock_wfree()', '', '', '*/', '', '', 'sock_set_flag(sk,SOCK_USE_WRITE_QUEUE);', '', '', 'inet_sk(sk)->pmtudisc=IP_PMTUDISC_DONT;', '', '}', '', '', '/*ControlparametersforECHOreplies.*/', '', 'net->ipv4.sysctl_icmp_echo_ignore_all=0;', '', 'net->ipv4.sysctl_icmp_echo_ignore_broadcasts=1;', '', '', '/*Controlparameter-ignorebogusbroadcastresponses?*/', '', 'net->ipv4.sysctl_icmp_ignore_bogus_error_responses=1;', '', '', '/*', '', '*', 'Configurableglobalratelimit.', '', '*', '', '*', 'ratelimitdefinestokens/packetconsumedfordst->rate_token', '', '*', 'bucketratemaskdefineswhichicmptypesareratelimitedby', '', '*', 'setting', "it'sbitposition.", '', '*', '', '*', 'default:', '', '*', 'destunreachable(3),sourcequench(4),</s>']
+New Original Lines, *********  46 ['<s>staticint__net_initicmp_sk_init(structnet*net)', '{', 'inti,err;', 'net->ipv4.icmp_sk=', 'kzalloc(nr_cpu_ids*sizeof(structsock*),GFP_KERNEL);', 'if(net->ipv4.icmp_sk==NULL)', 'return-ENOMEM;', 'for_each_possible_cpu(i){', 'structsock*sk;', 'err=inet_ctl_sock_create(&sk,PF_INET,', 'SOCK_RAW,IPPROTO_ICMP,net);', 'if(err<0)', 'gotofail;', 'net->ipv4.icmp_sk[i]=sk;', '/*Enoughspacefor264KICMPpackets,including', '*sk_buffstructoverhead.', '*/', 'sk->sk_sndbuf=', '(2*((64*1024)+sizeof(structsk_buff)));', '/*', '*Speedupsock_wfree()', '*/', 'sock_set_flag(sk,SOCK_USE_WRITE_QUEUE);', 'inet_sk(sk)->pmtudisc=IP_PMTUDISC_DONT;', '}', '/*ControlparametersforECHOreplies.*/', 'net->ipv4.sysctl_icmp_echo_ignore_all=0;', 'net->ipv4.sysctl_icmp_echo_ignore_broadcasts=1;', '/*Controlparameter-ignorebogusbroadcastresponses?*/', 'net->ipv4.sysctl_icmp_ignore_bogus_error_responses=1;', '/*', '*', 'Configurableglobalratelimit.', '*', '*', 'ratelimitdefinestokens/packetconsumedfordst->rate_token', '*', 'bucketratemaskdefineswhichicmptypesareratelimitedby', '*', 'setting', "it'sbitposition.", '*', '*', 'default:', '*', 'destunreachable(3),sourcequench(4),</s>']
+Flaw Lines 					SEPARATE_ZVAL(var2);/~/					convert_to_double(*var2);/~/					matrix[i][j] = (float)Z_DVAL_PP(var2);
+[tensor(223.7559, device='cuda:0'), tensor(24.0919, device='cuda:0'), tensor(77.4598, device='cuda:0'), tensor(140.6255, device='cuda:0'), tensor(282.7010, device='cuda:0'), tensor(181.6332, device='cuda:0'), tensor(86.8115, device='cuda:0'), tensor(149.0765, device='cuda:0'), tensor(79.4611, device='cuda:0'), tensor(232.6887, device='cuda:0'), tensor(192.0142, device='cuda:0'), tensor(78.4541, device='cuda:0'), tensor(70.5939, device='cuda:0'), tensor(199.0792, device='cuda:0'), tensor(159.7938, device='cuda:0'), tensor(93.1799, device='cuda:0'), tensor(28.3385, device='cuda:0'), tensor(107.9853, device='cuda:0'), tensor(235.5411, device='cuda:0'), tensor(28.8660, device='cuda:0'), tensor(111.6157, device='cuda:0'), tensor(28.0846, device='cuda:0'), tensor(250.9364, device='cuda:0'), tensor(267.7954, device='cuda:0'), tensor(32.9614, device='cuda:0'), tensor(129.0597, device='cuda:0'), tensor(249.8664, device='cuda:0'), tensor(275.7846, device='cuda:0'), tensor(143.3780, device='cuda:0'), tensor(319.0474, device='cuda:0'), tensor(29.0126, device='cuda:0'), tensor(27.9389, device='cuda:0'), tensor(88.3544, device='cuda:0'), tensor(26.8468, device='cuda:0'), tensor(19.9731, device='cuda:0'), tensor(185.6568, device='cuda:0'), tensor(20.5076, device='cuda:0'), tensor(191.7012, device='cuda:0'), tensor(21.3197, device='cuda:0'), tensor(22.2331, device='cuda:0'), tensor(82.3391, device='cuda:0'), tensor(26.4083, device='cuda:0'), tensor(20.8658, device='cuda:0'), tensor(43.9238, device='cuda:0'), tensor(22.1931, device='cuda:0'), tensor(157.0923, device='cuda:0')]
+46 115
+
+cd linevul
+python linevul_main.py \
+  --model_name=12heads_linevul_model.bin \
+  --output_dir=./saved_models \
+  --model_type=roberta \
+  --tokenizer_name=microsoft/codebert-base \
+  --model_name_or_path=microsoft/codebert-base \
+  --do_test \
+  --do_sorting_by_line_scores \
+  --effort_at_top_k=0.2 \
+  --top_k_recall_by_lines=0.01 \
+  --top_k_recall_by_pred_prob=0.2 \
+  --reasoning_method=all \
+  --train_data_file=../data/big-vul_dataset/train.csv \
+  --eval_data_file=../data/big-vul_dataset/val.csv \
+  --test_data_file=../data/big-vul_dataset/test.csv \
+  --block_size 512 \
+  --eval_batch_size 512
+
+   python linevul_main.py   --model_name=12heads_linevul_model.bin   --output_dir=./saved_models   --model_type=roberta   --tokenizer_name=microsoft/codebert-base   --model_name_or_path=microsoft/codebert-base   --do_train --do_test   --do_sorting_by_line_scores   --effort_at_top_k=0.2   --top_k_recall_by_lines=0.01   --top_k_recall_by_pred_prob=0.2   --reasoning_method=attention   --train_data_file=../data/big-vul_dataset/train.csv   --eval_data_file=../data/big-vul_dataset/val.csv   --test_data_file=../data/big-vul_dataset/test.csv   --block_size 512  --train_batch_size 256  --eval_batch_size 256
+
+
+
+######### Working Version ###################33
+
+
+python linevul_main.py \
+  --model_name=12heads_linevul_model.bin \
+  --output_dir=./saved_models \
+  --model_type=roberta \
+  --tokenizer_name=microsoft/codebert-base \
+  --model_name_or_path=microsoft/codebert-base \
+  --do_train \
+  --do_test \
+  --do_sorting_by_line_scores \
+  --learning_rate=6e-6 \
+  --weight_decay=0.9 \
+  --epochs=20 \
+  --effort_at_top_k=0.9 \
+  --top_k_recall_by_lines=0.01 \
+  --top_k_recall_by_pred_prob=0.2 \
+  --reasoning_method=all \
+  --train_data_file=../data/big-vul_dataset/train.csv \
+  --eval_data_file=../data/big-vul_dataset/val.csv \
+  --test_data_file=../data/D2A_Dataset/mini_test.csv \
+  --block_size 512 \
+  --train_batch_size 16 \
+  --eval_batch_size 16 
+
+
+  # best learning rate 5e-6/6e-6

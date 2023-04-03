@@ -120,12 +120,14 @@ class GNNReGVD(nn.Module):
         logits = self.classifier(outputs)
         prob = F.sigmoid(logits)
         if labels is not None:
-            labels = labels.float()
+            #labels = labels.float()
             #print(prob.is_cuda, labels.is_cuda)
             #mse_loss = CrossEntropyLoss(weight=class_weights, reduction='mean')
-            #mse_loss = CrossEntropyLoss()
+            ce = CrossEntropyLoss()
             
-            #loss = mse_loss(logits, labels)
+            #print(logits, labels)
+            loss = ce(logits, labels)
+            
             #print(prob[0], labels[0])
 
             # Focal Loss: Working!!!
@@ -135,8 +137,8 @@ class GNNReGVD(nn.Module):
             #loss = torchvision.ops.sigmoid_focal_loss(logits, y.to(device), alpha=0.1, gamma=2.0, reduction="mean")
             
 
-            loss = torch.log( prob[:, 0] + 1e-10) * labels + torch.log((1 - prob)[:, 0] + 1e-10) * (1 - labels)
-            loss = -loss.mean()
+            #loss = torch.log( prob[:, 0] + 1e-10) * labels + torch.log((1 - prob)[:, 0] + 1e-10) * (1 - labels)
+            #loss = -loss.mean()
             return loss , prob
         else:
             return prob

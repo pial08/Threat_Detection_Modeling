@@ -1,0 +1,702 @@
+
+Reasoning Method: attention
+total predicted vulnerable lines: 25978
+total lines: 504886
+total flaw lines: 3966
+total flaw lines in predicted as vulnerable: 2664
+top0.2-Effort: 0.0072
+total inspected line to find out 0.2 of flaw lines: 3643
+top0.01-Recall: 0.2509
+
+Reasoning Method: attention
+total predicted vulnerable lines: 25978
+total lines: 504886
+total flaw lines: 3966
+total flaw lines in predicted as vulnerable: 2664
+top0.2-Effort: 0.0072
+total inspected line to find out 0.2 of flaw lines: 3643
+top0.01-Recall: 0.2509
+
+Reasoning Method: attention
+total predicted vulnerable lines: 25978
+total lines: 504886
+total flaw lines: 3966
+total flaw lines in predicted as vulnerable: 2664
+top0.2-Effort: 0.0072
+total inspected line to find out 0.2 of flaw lines: 3643
+top0.01-Recall: 0.2509
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 25938
+total lines: 504886
+total flaw lines: 3966
+total flaw lines in predicted as vulnerable: 2659
+top0.2-Effort: 0.015
+total inspected line to find out 0.2 of flaw lines: 7580
+top0.01-Recall: 0.1299
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 25938
+total lines: 504886
+total flaw lines: 3966
+total flaw lines in predicted as vulnerable: 2659
+top0.2-Effort: 0.0151
+total inspected line to find out 0.2 of flaw lines: 7620
+top0.01-Recall: 0.1311
+
+Reasoning Method: attention
+total predicted vulnerable lines: 437
+total lines: 3584
+total flaw lines: 331
+total flaw lines in predicted as vulnerable: 29
+top0.2-Effort: 0.1219
+total inspected line to find out 0.2 of flaw lines: 437
+top0.01-Recall: 0.0242
+
+Reasoning Method: attention
+total predicted vulnerable lines: 437
+total lines: 3584
+total flaw lines: 331
+total flaw lines in predicted as vulnerable: 29
+top0.2-Effort: 0.1219
+total inspected line to find out 0.2 of flaw lines: 437
+top0.01-Recall: 0.0242
+
+Reasoning Method: attention
+total predicted vulnerable lines: 0
+total lines: 129
+total flaw lines: 25
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 0
+total lines: 129
+total flaw lines: 25
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 0
+total lines: 129
+total flaw lines: 25
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: lig
+total predicted vulnerable lines: 0
+total lines: 129
+total flaw lines: 25
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift
+total predicted vulnerable lines: 0
+total lines: 129
+total flaw lines: 25
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: gradient_shap
+total predicted vulnerable lines: 0
+total lines: 129
+total flaw lines: 25
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: attention
+total predicted vulnerable lines: 302
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 20
+top0.2-Effort: 0.2689
+total inspected line to find out 0.2 of flaw lines: 302
+top0.01-Recall: 0.0129
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 299
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 20
+top0.2-Effort: 0.2663
+total inspected line to find out 0.2 of flaw lines: 299
+top0.01-Recall: 0.0129
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 299
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 20
+top0.2-Effort: 0.2663
+total inspected line to find out 0.2 of flaw lines: 299
+top0.01-Recall: 0.0194
+
+Reasoning Method: attention
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: lig
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: gradient_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: attention
+total predicted vulnerable lines: 302
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 20
+top0.2-Effort: 0.2689
+total inspected line to find out 0.2 of flaw lines: 302
+top0.01-Recall: 0.0129
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 299
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 20
+top0.2-Effort: 0.2663
+total inspected line to find out 0.2 of flaw lines: 299
+top0.01-Recall: 0.0129
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 299
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 20
+top0.2-Effort: 0.2663
+total inspected line to find out 0.2 of flaw lines: 299
+top0.01-Recall: 0.0194
+
+Reasoning Method: attention
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: lig
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: gradient_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: attention
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: lig
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: gradient_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: attention
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: lig
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: gradient_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: attention
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: lig
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: gradient_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.2-Effort: 0.0
+total inspected line to find out 0.2 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: attention
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.9-Effort: 0.0
+total inspected line to find out 0.9 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.9-Effort: 0.0
+total inspected line to find out 0.9 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.9-Effort: 0.0
+total inspected line to find out 0.9 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: lig
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.9-Effort: 0.0
+total inspected line to find out 0.9 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: deeplift
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.9-Effort: 0.0
+total inspected line to find out 0.9 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: gradient_shap
+total predicted vulnerable lines: 0
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 0
+top0.9-Effort: 0.0
+total inspected line to find out 0.9 of flaw lines: 0
+top0.01-Recall: 0.0
+
+Reasoning Method: attention
+total predicted vulnerable lines: 1093
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.6999
+total inspected line to find out 0.9 of flaw lines: 786
+top0.01-Recall: 0.0452
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.9065
+total inspected line to find out 0.9 of flaw lines: 1018
+top0.01-Recall: 0.0258
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.7809
+total inspected line to find out 0.9 of flaw lines: 877
+top0.01-Recall: 0.0645
+
+Reasoning Method: attention
+total predicted vulnerable lines: 1093
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.0588
+total inspected line to find out 0.2 of flaw lines: 66
+top0.01-Recall: 0.0452
+
+Reasoning Method: attention
+total predicted vulnerable lines: 1093
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.6999
+total inspected line to find out 0.9 of flaw lines: 786
+top0.01-Recall: 0.0452
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: attention
+total predicted vulnerable lines: 1093
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.0588
+total inspected line to find out 0.2 of flaw lines: 66
+top0.01-Recall: 0.0452
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.2-Effort: 0.1389
+total inspected line to find out 0.2 of flaw lines: 156
+top0.01-Recall: 0.0258
+
+Reasoning Method: attention
+total predicted vulnerable lines: 1093
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.6999
+total inspected line to find out 0.9 of flaw lines: 786
+top0.01-Recall: 0.0452
+
+Reasoning Method: attention
+total predicted vulnerable lines: 1093
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.6981
+total inspected line to find out 0.9 of flaw lines: 784
+top0.01-Recall: 0.0452
+
+Reasoning Method: attention
+total predicted vulnerable lines: 1093
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.6981
+total inspected line to find out 0.9 of flaw lines: 784
+top0.01-Recall: 0.0452
+
+Reasoning Method: deeplift_shap
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.902
+total inspected line to find out 0.9 of flaw lines: 1013
+top0.01-Recall: 0.0323
+
+Reasoning Method: saliency
+total predicted vulnerable lines: 1067
+total lines: 1123
+total flaw lines: 155
+total flaw lines in predicted as vulnerable: 159
+top0.9-Effort: 0.5343
+total inspected line to find out 0.9 of flaw lines: 600
+top0.01-Recall: 0.0452

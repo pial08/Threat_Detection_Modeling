@@ -259,7 +259,7 @@ def build_graph(shuffle_doc_words_list, word_embeddings, tokenizer, window_size=
         col = []
         weight = []
         features = []
-        #file = open("temp.txt", "w")
+        #print("Word Pair Count = ", len(word_pair_count))
         for key in word_pair_count:
             p = key[0]
             q = key[1]

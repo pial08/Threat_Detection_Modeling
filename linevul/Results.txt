@@ -1,0 +1,51 @@
+Buggy Line
+Inside line level loc XFixesFetchRegionAndBounds (Display	    *dpy,
+XserverRegion   region,
+int		    *nrectanglesRet,
+XRectangle	    *bounds)
+{
+XFixesExtDisplayInfo	*info = XFixesFindDisplay (dpy);
+xXFixesFetchRegionReq	*req;
+xXFixesFetchRegionReply	rep;
+XRectangle			*rects;
+int    			nrects;
+long    			nbytes;
+long			nread;
+
+XFixesCheckExtension (dpy, info, NULL);
+LockDisplay (dpy);
+GetReq (XFixesFetchRegion, req);
+req->reqType = info->codes->major_opcode;
+req->xfixesReqType = X_XFixesFetchRegion;
+req->region = region;
+*nrectanglesRet = 0;
+if (!_XReply (dpy, (xReply *) &rep, 0, xFalse))
+{
+UnlockDisplay (dpy);
+SyncHandle ();
+return NULL;
+}
+bounds->x = rep.x;
+bounds->y = rep.y;
+bounds->y = rep.y;
+bounds->width = rep.width;
+bounds->height = rep.height;
+    nbytes = (long) rep.length << 2;
+    nrects = rep.length >> 1;
+    rects = Xmalloc (nrects * sizeof (XRectangle));
+if (!rects)
+{
+_XEatDataWords(dpy, rep.length);
+_XEatData (dpy, (unsigned long) (nbytes - nread));
+}
+UnlockDisplay (dpy);
+SyncHandle();
+*nrectanglesRet = nrects;
+return rects;
+}
+
+Original Lines,***********  ['<s>XFixesFetchRegionAndBounds(Display', '*dpy,', 'XserverRegionregion,', 'int', '', '*nrectanglesRet,', 'XRectangle', '*bounds)', '{', 'XFixesExtDisplayInfo', '*info=XFixesFindDisplay(dpy);', 'xXFixesFetchRegionReq', '*req;', 'xXFixesFetchRegionReply', 'rep;', 'XRectangle', '', '', '*rects;', 'int', '', '', 'nrects;', 'long', '', '', 'nbytes;', 'long', '', '', 'nread;', '', 'XFixesCheckExtension(dpy,info,NULL);', 'LockDisplay(dpy);', 'GetReq(XFixesFetchRegion,req);', 'req->reqType=info->codes->major_opcode;', 'req->xfixesReqType=X_XFixesFetchRegion;', 'req->region=region;', '*nrectanglesRet=0;', 'if(!_XReply(dpy,(xReply*)&rep,0,xFalse))', '{', 'UnlockDisplay(dpy);', 'SyncHandle();', 'returnNULL;', '}', 'bounds->x=rep.x;', 'bounds->y=rep.y;', 'bounds->y=rep.y;', 'bounds->width=rep.width;', 'catbounds->height=rep.height;', 'nbytes=(long)rep.length<<2;', 'nrects=rep.length>>1;dog', 'rects=Xmalloc(nrects*sizeof(XRectangle));', 'if(!rects)', '{', '_XEatDataWords(dpy,rep.length);', '_XEatData(dpy,(unsignedlong)(nbytes-nread));', '}', 'UnlockDisplay(dpy);', 'SyncHandle();', '*nrectanglesRet=nrects;', 'returnrects;', '}', '', '</s><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad>']
+New Original Lines, *********  54 ['<s>XFixesFetchRegionAndBounds(Display', '*dpy,', 'XserverRegionregion,', 'int', '*nrectanglesRet,', 'XRectangle', '*bounds)', '{', 'XFixesExtDisplayInfo', '*info=XFixesFindDisplay(dpy);', 'xXFixesFetchRegionReq', '*req;', 'xXFixesFetchRegionReply', 'rep;', 'XRectangle', '*rects;', 'int', 'nrects;', 'long', 'nbytes;', 'long', 'nread;', 'XFixesCheckExtension(dpy,info,NULL);', 'LockDisplay(dpy);', 'GetReq(XFixesFetchRegion,req);', 'req->reqType=info->codes->major_opcode;', 'req->xfixesReqType=X_XFixesFetchRegion;', 'req->region=region;', '*nrectanglesRet=0;', 'if(!_XReply(dpy,(xReply*)&rep,0,xFalse))', '{', 'UnlockDisplay(dpy);', 'SyncHandle();', 'returnNULL;', '}', 'bounds->x=rep.x;', 'bounds->y=rep.y;', 'bounds->y=rep.y;', 'bounds->width=rep.width;', 'catbounds->height=rep.height;', 'nbytes=(long)rep.length<<2;', 'nrects=rep.length>>1;dog', 'rects=Xmalloc(nrects*sizeof(XRectangle));', 'if(!rects)', '{', '_XEatDataWords(dpy,rep.length);', '_XEatData(dpy,(unsignedlong)(nbytes-nread));', '}', 'UnlockDisplay(dpy);', 'SyncHandle();', '*nrectanglesRet=nrects;', 'returnrects;', '}', '</s><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad>']
+Flaw Lines     nbytes = (long) rep.length << 2;/~/    nrects = rep.length >> 1;/~/    rects = Xmalloc (nrects * sizeof (XRectangle));
+[0.05820707231760025, 0.05776204075664282, 0.05625072447583079, 0.01320455176755786, 0.0629341653548181, 0.015529606956988573, 0.04690120532177389, 0.014671770622953773, 0.021381922299042344, 0.059204052900895476, 0.031053179409354925, 0.02283442299813032, 0.02285662933718413, 0.0163776547415182, 0.013850263552740216, 0.022176935919560492, 0.017007554415613413, 0.0234508344437927, 0.029234224231913686, 0.030066093080677092, 0.011424072086811066, 0.018117343890480697, 0.01614217646420002, 0.07097607967443764, 0.04711298434995115, 0.06727534672245383, 0.08763743774034083, 0.07777301012538373, 0.05386382341384888, 0.08265657373704016, 0.22568802814930677, 0.032171794679015875, 0.09217144036665559, 0.072767099365592, 0.07391927391290665, 0.05742047540843487, 0.14539978513494134, 0.2111356509849429, 0.23445454519242048, 0.3563859909772873, 0.5724224084988236, 0.5971182528883219, 1.7824448281899095, 0.7498248117044568, 0.10002334229648113, 0.08164879214018583, 0.1620099488645792, 0.22866011783480644, 0.036419556476175785, 0.07282530912198126, 0.0481252521276474, 0.09314626245759428, 0.05835003824904561, 0.03499357542023063, 0.06111189629882574]
+55 65

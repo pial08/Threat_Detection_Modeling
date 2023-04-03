@@ -1,0 +1,1282 @@
+,logits,y_trues,y_preds,index,num_flaw_lines,num_lines,flaw_line,processed_func,IoU
+3,0.46483156085014343,1.0,False,3,16,18,"  if (current_utterance_ && !current_utterance_->extension_id().empty()) {/~/    current_utterance_->profile()->GetExtensionEventRouter()->/~/        DispatchEventToExtension(/~/            current_utterance_->extension_id(),/~/            events::kOnStop,/~/            ""[]"",/~/            current_utterance_->profile(),/~/            GURL());/~/  } else {/~/    GetPlatformImpl()->clear_error();/~/    GetPlatformImpl()->StopSpeaking();/~/  if (current_utterance_)/~/    current_utterance_->set_error(kSpeechInterruptedError);/~/  FinishCurrentUtterance();/~/  ClearUtteranceQueue();/~/}","void ExtensionTtsController::Stop() {
+  if (current_utterance_ && !current_utterance_->extension_id().empty()) {
+    current_utterance_->profile()->GetExtensionEventRouter()->
+        DispatchEventToExtension(
+            current_utterance_->extension_id(),
+            events::kOnStop,
+            ""[]"",
+            current_utterance_->profile(),
+            GURL());
+  } else {
+    GetPlatformImpl()->clear_error();
+    GetPlatformImpl()->StopSpeaking();
+}
+
+  if (current_utterance_)
+    current_utterance_->set_error(kSpeechInterruptedError);
+  FinishCurrentUtterance();
+  ClearUtteranceQueue();
+}
+",0.7411167512690355
+25,0.4105664789676666,1.0,False,25,4,8,      (base::win::GetVersion() < base::win::VERSION_WIN8_1)) {/~/    if (!SetProcessDpiAwarenessWrapper(PROCESS_SYSTEM_DPI_AWARE)) {/~/      SetProcessDPIAwareWrapper();/~/    },"void EnableHighDPISupport() {
+if (IsHighDPIEnabled() &&
+      (base::win::GetVersion() < base::win::VERSION_WIN8_1)) {
+    if (!SetProcessDpiAwarenessWrapper(PROCESS_SYSTEM_DPI_AWARE)) {
+      SetProcessDPIAwareWrapper();
+    }
+}
+}
+",0.6823529411764706
+18,0.4446513056755066,1.0,False,18,14,16,"    unsigned long resource_id, const GURL& url, bool notify_needed,/~/    intptr_t notify_data, intptr_t existing_stream) {/~/  // Stream already exists. This typically happens for range requests/~/  // initiated via NPN_RequestRead./~/  if (existing_stream) {/~/    NPAPI::PluginStream* plugin_stream =/~/        reinterpret_cast<NPAPI::PluginStream*>(existing_stream);/~/    return plugin_stream->AsResourceClient();/~/  }/~/  std::string mime_type;/~/  NPAPI::PluginStreamUrl *stream = instance()->CreateStream(/~/      resource_id, url, mime_type, notify_needed,/~/      reinterpret_cast<void*>(notify_data));/~/  return stream;","WebPluginResourceClient* WebPluginDelegateImpl::CreateResourceClient(
+    unsigned long resource_id, const GURL& url, bool notify_needed,
+    intptr_t notify_data, intptr_t existing_stream) {
+  // Stream already exists. This typically happens for range requests
+  // initiated via NPN_RequestRead.
+  if (existing_stream) {
+    NPAPI::PluginStream* plugin_stream =
+        reinterpret_cast<NPAPI::PluginStream*>(existing_stream);
+    return plugin_stream->AsResourceClient();
+  }
+
+  std::string mime_type;
+  NPAPI::PluginStreamUrl *stream = instance()->CreateStream(
+      resource_id, url, mime_type, notify_needed,
+      reinterpret_cast<void*>(notify_data));
+  return stream;
+}
+",0.6802325581395349
+8,0.35800182819366455,1.0,False,8,1,11,       if (id.cluster < 0 || id.proc < 0) {,"SchedulerObject::_continue(std::string key, std::string &/*reason*/, std::string &text)
+{
+PROC_ID id = getProcByString(key.c_str());
+       if (id.cluster < 0 || id.proc < 0) {
+dprintf(D_FULLDEBUG, ""Remove: Failed to parse id: %s\n"", key.c_str());
+text = ""Invalid Id"";
+return false;
+}
+
+scheduler.enqueueActOnJobMyself(id,JA_CONTINUE_JOBS,true);
+
+return true;
+}
+",0.6129032258064516
+12,0.4071267247200012,1.0,False,12,4,9,"    // The navigation should commit in the pending RVH./~/    contents()->TestDidNavigate(/~/        contents()->pending_rvh(), entry->page_id(), GURL(entry->url()),/~/        content::PAGE_TRANSITION_TYPED);","void GoBackCrossSite() {
+NavigationEntry* entry = contents()->controller().GetEntryAtOffset(-1);
+ASSERT_TRUE(entry);
+contents()->controller().GoBack();
+
+    // The navigation should commit in the pending RVH.
+    contents()->TestDidNavigate(
+        contents()->pending_rvh(), entry->page_id(), GURL(entry->url()),
+        content::PAGE_TRANSITION_TYPED);
+}
+",0.5930232558139535
+21,0.40796220302581787,1.0,False,21,8,9,"                                GHashTable **out, GError **error)/~/{/~/  *out = g_hash_table_new_full (g_str_hash, g_str_equal,/~/				(GDestroyNotify) g_free,/~/                                (GDestroyNotify) g_hash_table_destroy);/~/  g_hash_table_foreach (in, hash_foreach_mangle_dict_of_strings, *out);/~/  return TRUE;/~/}","my_object_dict_of_dicts (MyObject *obj, GHashTable *in,
+                                GHashTable **out, GError **error)
+{
+  *out = g_hash_table_new_full (g_str_hash, g_str_equal,
+				(GDestroyNotify) g_free,
+                                (GDestroyNotify) g_hash_table_destroy);
+  g_hash_table_foreach (in, hash_foreach_mangle_dict_of_strings, *out);
+  return TRUE;
+}
+",0.5396039603960396
+0,0.40169352293014526,1.0,False,0,3,5,"                                     const std::string& email,/~/                                     const std::string& proxy_id) {/~/    QuitMessageLoop();","static void CloudPrintInfoCallback(bool enabled,
+                                     const std::string& email,
+                                     const std::string& proxy_id) {
+    QuitMessageLoop();
+}
+",0.5192307692307693
+17,0.39693978428840637,1.0,False,17,13,14,"{/~/    ExceptionCode ignoredExceptionCode;/~/    RefPtr<Node> nextChild;/~/    for (RefPtr<Node> child = element->firstChild(); child; child = nextChild) {/~/        nextChild = child->nextSibling();/~/        element->removeChild(child.get(), ignoredExceptionCode);/~/        ASSERT(!ignoredExceptionCode);/~/        fragment->insertBefore(child, element, ignoredExceptionCode);/~/        ASSERT(!ignoredExceptionCode);/~/    }/~/    fragment->removeChild(element, ignoredExceptionCode);/~/    ASSERT(!ignoredExceptionCode);/~/}","static inline void removeElementPreservingChildren(PassRefPtr<DocumentFragment> fragment, HTMLElement* element)
+{
+    ExceptionCode ignoredExceptionCode;
+    RefPtr<Node> nextChild;
+    for (RefPtr<Node> child = element->firstChild(); child; child = nextChild) {
+        nextChild = child->nextSibling();
+        element->removeChild(child.get(), ignoredExceptionCode);
+        ASSERT(!ignoredExceptionCode);
+        fragment->insertBefore(child, element, ignoredExceptionCode);
+        ASSERT(!ignoredExceptionCode);
+    }
+    fragment->removeChild(element, ignoredExceptionCode);
+    ASSERT(!ignoredExceptionCode);
+}
+",0.4622222222222222
+1,0.36983489990234375,1.0,False,1,3,30,    if ((ctxt->context->node->type == XML_ATTRIBUTE_NODE) ||/~/	(ctxt->context->node->type == XML_NAMESPACE_DECL))/~/	return(NULL);,"xmlXPathNextPrecedingInternal(xmlXPathParserContextPtr ctxt,
+xmlNodePtr cur)
+{
+if ((ctxt == NULL) || (ctxt->context == NULL)) return(NULL);
+    if ((ctxt->context->node->type == XML_ATTRIBUTE_NODE) ||
+	(ctxt->context->node->type == XML_NAMESPACE_DECL))
+	return(NULL);
+if (cur == NULL) {
+cur = ctxt->context->node;
+if (cur == NULL)
+return (NULL);
+ctxt->ancestor = cur->parent;
+}
+if ((cur->prev != NULL) && (cur->prev->type == XML_DTD_NODE))
+cur = cur->prev;
+while (cur->prev == NULL) {
+cur = cur->parent;
+if (cur == NULL)
+return (NULL);
+if (cur == ctxt->context->doc->children)
+return (NULL);
+if (cur != ctxt->ancestor)
+return (cur);
+ctxt->ancestor = cur->parent;
+}
+cur = cur->prev;
+while (cur->last != NULL)
+cur = cur->last;
+return (cur);
+}
+",0.38028169014084506
+15,0.36374664306640625,1.0,False,15,2,3,    return media_controls_view_->close_button_;/~/  },"views::ImageButton* close_button() const {
+    return media_controls_view_->close_button_;
+  }
+",0.2
+14,0.38039806485176086,1.0,False,14,3,4,{/~/    return m_prev;/~/},"long long BlockGroup::GetPrevTimeCode() const
+{
+    return m_prev;
+}
+",0.09523809523809523
+27,0.5019786953926086,1.0,True,27,2,25,"    if (update_wallpaper)/~/      DoSetDefaultWallpaper(account_id, std::move(on_finish));","void WallpaperManager::OnWallpaperDecoded(
+const AccountId& account_id,
+const wallpaper::WallpaperInfo& info,
+bool update_wallpaper,
+MovableOnDestroyCallbackHolder on_finish,
+std::unique_ptr<user_manager::UserImage> user_image) {
+DCHECK_CURRENTLY_ON(BrowserThread::UI);
+TRACE_EVENT_ASYNC_END0(""ui"", ""LoadAndDecodeWallpaper"", this);
+
+// If decoded wallpaper is empty, we have probably failed to decode the file.
+// Use default wallpaper in this case.
+if (user_image->image().isNull()) {
+// Updates user pref to default wallpaper.
+wallpaper::WallpaperInfo default_info(
+"""", wallpaper::WALLPAPER_LAYOUT_CENTER_CROPPED, wallpaper::DEFAULT,
+base::Time::Now().LocalMidnight());
+SetUserWallpaperInfo(account_id, default_info, true);
+    if (update_wallpaper)
+      DoSetDefaultWallpaper(account_id, std::move(on_finish));
+return;
+}
+
+// Update the image, but keep the path which was set earlier.
+wallpaper_cache_[account_id].second = user_image->image();
+
+if (update_wallpaper)
+SetWallpaper(user_image->image(), info);
+}
+",0.08641975308641975
+26,0.40149375796318054,1.0,False,26,4,22,	/~/		RETURN_FALSE;		/~/	/~/	,"SPL_METHOD(SplFileObject, seek)
+{
+spl_filesystem_object *intern = (spl_filesystem_object*)zend_object_store_get_object(getThis() TSRMLS_CC);
+long line_pos;
+	
+if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, ""l"", &line_pos) == FAILURE) {
+return;
+}
+if (line_pos < 0) {
+zend_throw_exception_ex(spl_ce_LogicException, 0 TSRMLS_CC, ""Can't seek file %s to negative line %ld"", intern->file_name, line_pos);
+		RETURN_FALSE;		
+}
+	
+spl_filesystem_file_rewind(getThis(), intern TSRMLS_CC);
+	
+while(intern->u.file.current_line_num < line_pos) {
+if (spl_filesystem_file_read_line(getThis(), intern, 1 TSRMLS_CC) == FAILURE) {
+break;
+}
+}
+} /* }}} */
+
+/* {{{ Function/Class/Method definitions */
+",0.08
+7,0.4774741232395172,1.0,False,7,5,84,"        imap_quote_string(term, sizeof(term), pat->p.str);/~/        imap_quote_string(term, sizeof(term), delim);/~/        imap_quote_string(term, sizeof(term), pat->p.str);/~/        imap_quote_string(term, sizeof(term), pat->p.str);/~/        imap_quote_string(term, sizeof(term), pat->p.str);","static int compile_search(struct Context *ctx, const struct Pattern *pat, struct Buffer *buf)
+{
+if (do_search(pat, 0) == 0)
+return 0;
+
+if (pat->not)
+mutt_buffer_addstr(buf, ""NOT "");
+
+if (pat->child)
+{
+int clauses;
+
+clauses = do_search(pat->child, 1);
+if (clauses > 0)
+{
+const struct Pattern *clause = pat->child;
+
+mutt_buffer_addch(buf, '(');
+
+while (clauses)
+{
+if (do_search(clause, 0))
+{
+if (pat->op == MUTT_OR && clauses > 1)
+mutt_buffer_addstr(buf, ""OR "");
+clauses--;
+
+if (compile_search(ctx, clause, buf) < 0)
+return -1;
+
+if (clauses)
+mutt_buffer_addch(buf, ' ');
+}
+clause = clause->next;
+}
+
+mutt_buffer_addch(buf, ')');
+}
+}
+else
+{
+char term[STRING];
+char *delim = NULL;
+
+switch (pat->op)
+{
+case MUTT_HEADER:
+mutt_buffer_addstr(buf, ""HEADER "");
+
+/* extract header name */
+delim = strchr(pat->p.str, ':');
+if (!delim)
+{
+mutt_error(_(""Header search without header name: %s""), pat->p.str);
+return -1;
+}
+*delim = '\0';
+        imap_quote_string(term, sizeof(term), pat->p.str);
+mutt_buffer_addstr(buf, term);
+mutt_buffer_addch(buf, ' ');
+
+/* and field */
+*delim = ':';
+delim++;
+SKIPWS(delim);
+        imap_quote_string(term, sizeof(term), delim);
+mutt_buffer_addstr(buf, term);
+break;
+case MUTT_BODY:
+mutt_buffer_addstr(buf, ""BODY "");
+        imap_quote_string(term, sizeof(term), pat->p.str);
+mutt_buffer_addstr(buf, term);
+break;
+case MUTT_WHOLE_MSG:
+mutt_buffer_addstr(buf, ""TEXT "");
+        imap_quote_string(term, sizeof(term), pat->p.str);
+mutt_buffer_addstr(buf, term);
+break;
+case MUTT_SERVERSEARCH:
+{
+struct ImapData *idata = ctx->data;
+if (!mutt_bit_isset(idata->capabilities, X_GM_EXT1))
+{
+mutt_error(_(""Server-side custom search not supported: %s""), pat->p.str);
+return -1;
+}
+}
+mutt_buffer_addstr(buf, ""X-GM-RAW "");
+        imap_quote_string(term, sizeof(term), pat->p.str);
+mutt_buffer_addstr(buf, term);
+break;
+}
+}
+
+return 0;
+}
+",0.0
+24,0.40076547861099243,1.0,False,24,1,45,	passert(GLOBALS_ARE_RESET());,"static void ikev2_parent_inI2outR2_continue(struct pluto_crypto_req_cont *pcrc,
+struct pluto_crypto_req *r,
+err_t ugh)
+{
+struct dh_continuation *dh = (struct dh_continuation *)pcrc;
+struct msg_digest *md = dh->md;
+struct state *const st = md->st;
+stf_status e;
+
+DBG(DBG_CONTROLMORE,
+DBG_log(""ikev2 parent inI2outR2: calculating g^{xy}, sending R2""));
+
+if (st == NULL) {
+loglog(RC_LOG_SERIOUS,
+""%s: Request was disconnected from state"",
+__FUNCTION__);
+if (dh->md)
+release_md(dh->md);
+return;
+}
+
+/* XXX should check out ugh */
+passert(ugh == NULL);
+passert(cur_state == NULL);
+passert(st != NULL);
+
+passert(st->st_suspended_md == dh->md);
+set_suspended(st, NULL); /* no longer connected or suspended */
+
+set_cur_state(st);
+
+st->st_calculating = FALSE;
+
+e = ikev2_parent_inI2outR2_tail(pcrc, r);
+if ( e > STF_FAIL) {
+/* we do not send a notify because we are the initiator that could be responding to an error notification */
+int v2_notify_num = e - STF_FAIL;
+DBG_log(
+""ikev2_parent_inI2outR2_tail returned STF_FAIL with %s"",
+enum_name(&ikev2_notify_names, v2_notify_num));
+} else if ( e != STF_OK) {
+DBG_log(""ikev2_parent_inI2outR2_tail returned %s"",
+enum_name(&stfstatus_name, e));
+}
+
+if (dh->md != NULL) {
+complete_v2_state_transition(&dh->md, e);
+if (dh->md)
+release_md(dh->md);
+}
+reset_globals();
+	passert(GLOBALS_ARE_RESET());
+}
+",0.0
+34,0.4061276614665985,1.0,False,34,7,55,"#ifdef PNG_WRITE_WEIGHTED_FILTER_SUPPORTED/~/   png_free(png_ptr, png_ptr->prev_filters);/~/   png_free(png_ptr, png_ptr->filter_weights);/~/   png_free(png_ptr, png_ptr->inv_filter_weights);/~/   png_free(png_ptr, png_ptr->filter_costs);/~/   png_free(png_ptr, png_ptr->inv_filter_costs);/~/#endif","png_write_destroy(png_structp png_ptr)
+{
+#ifdef PNG_SETJMP_SUPPORTED
+jmp_buf tmp_jmp; /* Save jump buffer */
+#endif
+png_error_ptr error_fn;
+png_error_ptr warning_fn;
+png_voidp error_ptr;
+#ifdef PNG_USER_MEM_SUPPORTED
+png_free_ptr free_fn;
+#endif
+
+png_debug(1, ""in png_write_destroy"");
+
+/* Free any memory zlib uses */
+deflateEnd(&png_ptr->zstream);
+
+/* Free our memory.  png_free checks NULL for us. */
+png_free(png_ptr, png_ptr->zbuf);
+png_free(png_ptr, png_ptr->row_buf);
+#ifdef PNG_WRITE_FILTER_SUPPORTED
+png_free(png_ptr, png_ptr->prev_row);
+png_free(png_ptr, png_ptr->sub_row);
+png_free(png_ptr, png_ptr->up_row);
+png_free(png_ptr, png_ptr->avg_row);
+png_free(png_ptr, png_ptr->paeth_row);
+#endif
+
+#ifdef PNG_TIME_RFC1123_SUPPORTED
+png_free(png_ptr, png_ptr->time_buffer);
+#endif
+
+#ifdef PNG_WRITE_WEIGHTED_FILTER_SUPPORTED
+   png_free(png_ptr, png_ptr->prev_filters);
+   png_free(png_ptr, png_ptr->filter_weights);
+   png_free(png_ptr, png_ptr->inv_filter_weights);
+   png_free(png_ptr, png_ptr->filter_costs);
+   png_free(png_ptr, png_ptr->inv_filter_costs);
+#endif
+#ifdef PNG_SETJMP_SUPPORTED
+/* Reset structure */
+png_memcpy(tmp_jmp, png_ptr->jmpbuf, png_sizeof(jmp_buf));
+#endif
+
+error_fn = png_ptr->error_fn;
+warning_fn = png_ptr->warning_fn;
+error_ptr = png_ptr->error_ptr;
+#ifdef PNG_USER_MEM_SUPPORTED
+free_fn = png_ptr->free_fn;
+#endif
+
+png_memset(png_ptr, 0, png_sizeof(png_struct));
+
+png_ptr->error_fn = error_fn;
+png_ptr->warning_fn = warning_fn;
+png_ptr->error_ptr = error_ptr;
+#ifdef PNG_USER_MEM_SUPPORTED
+png_ptr->free_fn = free_fn;
+#endif
+
+#ifdef PNG_SETJMP_SUPPORTED
+png_memcpy(png_ptr->jmpbuf, tmp_jmp, png_sizeof(jmp_buf));
+#endif
+}
+",0.0
+33,0.4388011395931244,1.0,False,33,12,89,"		return -EINVAL;/~/		return -EALREADY;/~/		po->rollover = kzalloc(sizeof(*po->rollover), GFP_KERNEL);/~/		if (!po->rollover)/~/			return -ENOMEM;/~/		atomic_long_set(&po->rollover->num, 0);/~/		atomic_long_set(&po->rollover->num_huge, 0);/~/		atomic_long_set(&po->rollover->num_failed, 0);/~/	mutex_lock(&fanout_mutex);/~/	mutex_unlock(&fanout_mutex);/~/	if (err) {/~/		kfree(po->rollover);","static int fanout_add(struct sock *sk, u16 id, u16 type_flags)
+{
+struct packet_sock *po = pkt_sk(sk);
+struct packet_fanout *f, *match;
+u8 type = type_flags & 0xff;
+u8 flags = type_flags >> 8;
+int err;
+
+switch (type) {
+case PACKET_FANOUT_ROLLOVER:
+if (type_flags & PACKET_FANOUT_FLAG_ROLLOVER)
+return -EINVAL;
+case PACKET_FANOUT_HASH:
+case PACKET_FANOUT_LB:
+case PACKET_FANOUT_CPU:
+case PACKET_FANOUT_RND:
+case PACKET_FANOUT_QM:
+case PACKET_FANOUT_CBPF:
+case PACKET_FANOUT_EBPF:
+break;
+default:
+return -EINVAL;
+}
+
+if (!po->running)
+		return -EINVAL;
+
+if (po->fanout)
+		return -EALREADY;
+
+if (type == PACKET_FANOUT_ROLLOVER ||
+(type_flags & PACKET_FANOUT_FLAG_ROLLOVER)) {
+		po->rollover = kzalloc(sizeof(*po->rollover), GFP_KERNEL);
+		if (!po->rollover)
+			return -ENOMEM;
+		atomic_long_set(&po->rollover->num, 0);
+		atomic_long_set(&po->rollover->num_huge, 0);
+		atomic_long_set(&po->rollover->num_failed, 0);
+}
+
+	mutex_lock(&fanout_mutex);
+match = NULL;
+list_for_each_entry(f, &fanout_list, list) {
+if (f->id == id &&
+read_pnet(&f->net) == sock_net(sk)) {
+match = f;
+break;
+}
+}
+err = -EINVAL;
+if (match && match->flags != flags)
+goto out;
+if (!match) {
+err = -ENOMEM;
+match = kzalloc(sizeof(*match), GFP_KERNEL);
+if (!match)
+goto out;
+write_pnet(&match->net, sock_net(sk));
+match->id = id;
+match->type = type;
+match->flags = flags;
+INIT_LIST_HEAD(&match->list);
+spin_lock_init(&match->lock);
+atomic_set(&match->sk_ref, 0);
+fanout_init_data(match);
+match->prot_hook.type = po->prot_hook.type;
+match->prot_hook.dev = po->prot_hook.dev;
+match->prot_hook.func = packet_rcv_fanout;
+match->prot_hook.af_packet_priv = match;
+match->prot_hook.id_match = match_fanout_group;
+dev_add_pack(&match->prot_hook);
+list_add(&match->list, &fanout_list);
+}
+err = -EINVAL;
+if (match->type == type &&
+match->prot_hook.type == po->prot_hook.type &&
+match->prot_hook.dev == po->prot_hook.dev) {
+err = -ENOSPC;
+if (atomic_read(&match->sk_ref) < PACKET_FANOUT_MAX) {
+__dev_remove_pack(&po->prot_hook);
+po->fanout = match;
+atomic_inc(&match->sk_ref);
+__fanout_link(sk, po);
+err = 0;
+}
+}
+out:
+	mutex_unlock(&fanout_mutex);
+	if (err) {
+		kfree(po->rollover);
+po->rollover = NULL;
+}
+return err;
+}
+",0.0
+32,0.4006260633468628,1.0,False,32,5,37,"  base::ProcessHandle renderer_process_for_gpu;/~/                                               &renderer_process_for_gpu,/~/      channel_handle.name.empty() ||/~/      renderer_process_for_gpu == base::kNullProcessHandle) {/~/  gpu_channel_->Connect(channel_handle, renderer_process_for_gpu);","GpuChannelHost* RenderThreadImpl::EstablishGpuChannelSync(
+content::CauseForGpuLaunch cause_for_gpu_launch) {
+if (gpu_channel_.get()) {
+// Do nothing if we already have a GPU channel or are already
+// establishing one.
+if (gpu_channel_->state() == GpuChannelHost::kUnconnected ||
+gpu_channel_->state() == GpuChannelHost::kConnected)
+return GetGpuChannel();
+
+// Recreate the channel if it has been lost.
+gpu_channel_ = NULL;
+}
+
+// Ask the browser for the channel name.
+int client_id = 0;
+IPC::ChannelHandle channel_handle;
+  base::ProcessHandle renderer_process_for_gpu;
+content::GPUInfo gpu_info;
+if (!Send(new GpuHostMsg_EstablishGpuChannel(cause_for_gpu_launch,
+&client_id,
+&channel_handle,
+                                               &renderer_process_for_gpu,
+&gpu_info)) ||
+      channel_handle.name.empty() ||
+#if defined(OS_POSIX)
+channel_handle.socket.fd == -1 ||
+#endif
+      renderer_process_for_gpu == base::kNullProcessHandle) {
+// Otherwise cancel the connection.
+gpu_channel_ = NULL;
+return NULL;
+}
+
+gpu_channel_ = new GpuChannelHost(this, 0, client_id);
+gpu_channel_->set_gpu_info(gpu_info);
+content::GetContentClient()->SetGpuInfo(gpu_info);
+
+// Connect to the GPU process if a channel name was received.
+  gpu_channel_->Connect(channel_handle, renderer_process_for_gpu);
+
+return GetGpuChannel();
+}
+",0.0
+31,0.390331894159317,1.0,False,31,1,32,"    base::WeakPtr<SSLErrorHandler::Delegate> delegate,","void SSLManager::OnSSLCertificateError(
+    base::WeakPtr<SSLErrorHandler::Delegate> delegate,
+const content::GlobalRequestID& id,
+const ResourceType::Type resource_type,
+const GURL& url,
+int render_process_id,
+int render_view_id,
+const net::SSLInfo& ssl_info,
+bool fatal) {
+DCHECK(delegate);
+DVLOG(1) << ""OnSSLCertificateError() cert_error: ""
+<< net::MapCertStatusToNetError(ssl_info.cert_status)
+<< "" id: "" << id.child_id << "","" << id.request_id
+<< "" resource_type: "" << resource_type
+<< "" url: "" << url.spec()
+<< "" render_process_id: "" << render_process_id
+<< "" render_view_id: "" << render_view_id
+<< "" cert_status: "" << std::hex << ssl_info.cert_status;
+
+// A certificate error occurred.  Construct a SSLCertErrorHandler object and
+// hand it over to the UI thread for processing.
+BrowserThread::PostTask(
+BrowserThread::UI, FROM_HERE,
+base::Bind(&SSLCertErrorHandler::Dispatch,
+new SSLCertErrorHandler(delegate,
+id,
+resource_type,
+url,
+render_process_id,
+render_view_id,
+ssl_info,
+fatal)));
+}
+",0.0
+30,0.4381338655948639,1.0,False,30,13,39,"      new_service_runtime->Start(wrapper,/~/                                 error_info,/~/                                 manifest_base_url());/~/  // Try to start the Chrome IPC-based proxy./~/  const PPB_NaCl_Private* ppb_nacl = GetNaclInterface();/~/  if (ppb_nacl->StartPpapiProxy(pp_instance())) {/~/    using_ipc_proxy_ = true;/~/    // We need to explicitly schedule this here. It is normally called in/~/    // response to starting the SRPC proxy./~/    CHECK(init_done_cb.pp_completion_callback().func != NULL);/~/    PLUGIN_PRINTF((""Plugin::LoadNaClModuleCommon, started ipc proxy.\n""));/~/    pp::Module::Get()->core()->CallOnMainThread(0, init_done_cb, PP_OK);/~/  }","bool Plugin::LoadNaClModuleCommon(nacl::DescWrapper* wrapper,
+NaClSubprocess* subprocess,
+const Manifest* manifest,
+bool should_report_uma,
+ErrorInfo* error_info,
+pp::CompletionCallback init_done_cb,
+pp::CompletionCallback crash_cb) {
+ServiceRuntime* new_service_runtime =
+new ServiceRuntime(this, manifest, should_report_uma, init_done_cb,
+crash_cb);
+subprocess->set_service_runtime(new_service_runtime);
+PLUGIN_PRINTF((""Plugin::LoadNaClModuleCommon (service_runtime=%p)\n"",
+static_cast<void*>(new_service_runtime)));
+if (NULL == new_service_runtime) {
+error_info->SetReport(ERROR_SEL_LDR_INIT,
+""sel_ldr init failure "" + subprocess->description());
+return false;
+}
+
+bool service_runtime_started =
+      new_service_runtime->Start(wrapper,
+                                 error_info,
+                                 manifest_base_url());
+PLUGIN_PRINTF((""Plugin::LoadNaClModuleCommon (service_runtime_started=%d)\n"",
+service_runtime_started));
+if (!service_runtime_started) {
+return false;
+}
+  // Try to start the Chrome IPC-based proxy.
+  const PPB_NaCl_Private* ppb_nacl = GetNaclInterface();
+  if (ppb_nacl->StartPpapiProxy(pp_instance())) {
+    using_ipc_proxy_ = true;
+    // We need to explicitly schedule this here. It is normally called in
+    // response to starting the SRPC proxy.
+    CHECK(init_done_cb.pp_completion_callback().func != NULL);
+    PLUGIN_PRINTF((""Plugin::LoadNaClModuleCommon, started ipc proxy.\n""));
+    pp::Module::Get()->core()->CallOnMainThread(0, init_done_cb, PP_OK);
+  }
+return true;
+}
+",0.0
+29,0.3975229561328888,1.0,False,29,1,99,"    (void) fputc(c,file);","static Image *ReadGROUP4Image(const ImageInfo *image_info,
+ExceptionInfo *exception)
+{
+char
+filename[MagickPathExtent];
+
+FILE
+*file;
+
+Image
+*image;
+
+ImageInfo
+*read_info;
+
+int
+c,
+unique_file;
+
+MagickBooleanType
+status;
+
+size_t
+length;
+
+ssize_t
+offset,
+strip_offset;
+
+/*
+Open image file.
+*/
+assert(image_info != (const ImageInfo *) NULL);
+assert(image_info->signature == MagickCoreSignature);
+if (image_info->debug != MagickFalse)
+(void) LogMagickEvent(TraceEvent,GetMagickModule(),""%s"",
+image_info->filename);
+assert(exception != (ExceptionInfo *) NULL);
+assert(exception->signature == MagickCoreSignature);
+image=AcquireImage(image_info,exception);
+status=OpenBlob(image_info,image,ReadBinaryBlobMode,exception);
+if (status == MagickFalse)
+{
+image=DestroyImageList(image);
+return((Image *) NULL);
+}
+/*
+Write raw CCITT Group 4 wrapped as a TIFF image file.
+*/
+file=(FILE *) NULL;
+unique_file=AcquireUniqueFileResource(filename);
+if (unique_file != -1)
+file=fdopen(unique_file,""wb"");
+if ((unique_file == -1) || (file == (FILE *) NULL))
+ThrowImageException(FileOpenError,""UnableToCreateTemporaryFile"");
+length=fwrite(""\111\111\052\000\010\000\000\000\016\000"",1,10,file);
+length=fwrite(""\376\000\003\000\001\000\000\000\000\000\000\000"",1,12,file);
+length=fwrite(""\000\001\004\000\001\000\000\000"",1,8,file);
+length=WriteLSBLong(file,image->columns);
+length=fwrite(""\001\001\004\000\001\000\000\000"",1,8,file);
+length=WriteLSBLong(file,image->rows);
+length=fwrite(""\002\001\003\000\001\000\000\000\001\000\000\000"",1,12,file);
+length=fwrite(""\003\001\003\000\001\000\000\000\004\000\000\000"",1,12,file);
+length=fwrite(""\006\001\003\000\001\000\000\000\000\000\000\000"",1,12,file);
+length=fwrite(""\021\001\003\000\001\000\000\000"",1,8,file);
+strip_offset=10+(12*14)+4+8;
+length=WriteLSBLong(file,(size_t) strip_offset);
+length=fwrite(""\022\001\003\000\001\000\000\000"",1,8,file);
+length=WriteLSBLong(file,(size_t) image_info->orientation);
+length=fwrite(""\025\001\003\000\001\000\000\000\001\000\000\000"",1,12,file);
+length=fwrite(""\026\001\004\000\001\000\000\000"",1,8,file);
+length=WriteLSBLong(file,image->rows);
+length=fwrite(""\027\001\004\000\001\000\000\000\000\000\000\000"",1,12,file);
+offset=(ssize_t) ftell(file)-4;
+length=fwrite(""\032\001\005\000\001\000\000\000"",1,8,file);
+length=WriteLSBLong(file,(size_t) (strip_offset-8));
+length=fwrite(""\033\001\005\000\001\000\000\000"",1,8,file);
+length=WriteLSBLong(file,(size_t) (strip_offset-8));
+length=fwrite(""\050\001\003\000\001\000\000\000\002\000\000\000"",1,12,file);
+length=fwrite(""\000\000\000\000"",1,4,file);
+length=WriteLSBLong(file,(long) image->resolution.x);
+length=WriteLSBLong(file,1);
+for (length=0; (c=ReadBlobByte(image)) != EOF; length++)
+    (void) fputc(c,file);
+offset=(ssize_t) fseek(file,(ssize_t) offset,SEEK_SET);
+length=WriteLSBLong(file,(unsigned int) length);
+(void) fclose(file);
+(void) CloseBlob(image);
+image=DestroyImage(image);
+/*
+Read TIFF image.
+*/
+read_info=CloneImageInfo((ImageInfo *) NULL);
+(void) FormatLocaleString(read_info->filename,MagickPathExtent,""%s"",filename);
+image=ReadTIFFImage(read_info,exception);
+read_info=DestroyImageInfo(read_info);
+if (image != (Image *) NULL)
+{
+(void) CopyMagickString(image->filename,image_info->filename,
+MagickPathExtent);
+(void) CopyMagickString(image->magick_filename,image_info->filename,
+MagickPathExtent);
+(void) CopyMagickString(image->magick,""GROUP4"",MagickPathExtent);
+}
+(void) RelinquishUniqueFileResource(filename);
+return(image);
+}
+",0.0
+28,0.4001505970954895,1.0,False,28,1,15,"        m_blobDataHandles.add(blob->uuid(), blob->blobDataHandle());","StateBase* writeBlob(v8::Handle<v8::Value> value, StateBase* next)
+{
+Blob* blob = V8Blob::toNative(value.As<v8::Object>());
+if (!blob)
+return 0;
+if (blob->hasBeenClosed())
+return handleError(DataCloneError, ""A Blob object has been closed, and could therefore not be cloned."", next);
+int blobIndex = -1;
+        m_blobDataHandles.add(blob->uuid(), blob->blobDataHandle());
+if (appendBlobInfo(blob->uuid(), blob->type(), blob->size(), &blobIndex))
+m_writer.writeBlobIndex(blobIndex);
+else
+m_writer.writeBlob(blob->uuid(), blob->type(), blob->size());
+return 0;
+}
+",0.0
+2,0.3782360851764679,1.0,False,2,3,42,					SEPARATE_ZVAL(var2);/~/					convert_to_double(*var2);/~/					matrix[i][j] = (float)Z_DVAL_PP(var2);,"PHP_FUNCTION(imageconvolution)
+{
+zval *SIM, *hash_matrix;
+zval **var = NULL, **var2 = NULL;
+gdImagePtr im_src = NULL;
+double div, offset;
+int nelem, i, j, res;
+float matrix[3][3] = {{0,0,0}, {0,0,0}, {0,0,0}};
+
+if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, ""radd"", &SIM, &hash_matrix, &div, &offset) == FAILURE) {
+RETURN_FALSE;
+}
+
+ZEND_FETCH_RESOURCE(im_src, gdImagePtr, &SIM, -1, ""Image"", le_gd);
+
+nelem = zend_hash_num_elements(Z_ARRVAL_P(hash_matrix));
+if (nelem != 3) {
+php_error_docref(NULL TSRMLS_CC, E_WARNING, ""You must have 3x3 array"");
+RETURN_FALSE;
+}
+
+for (i=0; i<3; i++) {
+if (zend_hash_index_find(Z_ARRVAL_P(hash_matrix), (i), (void **) &var) == SUCCESS && Z_TYPE_PP(var) == IS_ARRAY) {
+if (Z_TYPE_PP(var) != IS_ARRAY || zend_hash_num_elements(Z_ARRVAL_PP(var)) != 3 ) {
+php_error_docref(NULL TSRMLS_CC, E_WARNING, ""You must have 3x3 array"");
+RETURN_FALSE;
+}
+
+for (j=0; j<3; j++) {
+if (zend_hash_index_find(Z_ARRVAL_PP(var), (j), (void **) &var2) == SUCCESS) {
+					SEPARATE_ZVAL(var2);
+					convert_to_double(*var2);
+					matrix[i][j] = (float)Z_DVAL_PP(var2);
+} else {
+php_error_docref(NULL TSRMLS_CC, E_WARNING, ""You must have a 3x3 matrix"");
+RETURN_FALSE;
+}
+}
+}
+}
+res = gdImageConvolution(im_src, matrix, (float)div, (float)offset);
+
+if (res) {
+RETURN_TRUE;
+} else {
+RETURN_FALSE;
+}
+}
+",0.0
+4,0.3844265937805176,1.0,False,4,2,30,	}/~/	if (!err) {,"SYSCALL_DEFINE5(waitid, int, which, pid_t, upid, struct siginfo __user *,
+infop, int, options, struct rusage __user *, ru)
+{
+struct rusage r;
+struct waitid_info info = {.status = 0};
+long err = kernel_waitid(which, upid, &info, options, ru ? &r : NULL);
+int signo = 0;
+if (err > 0) {
+signo = SIGCHLD;
+err = 0;
+	}
+	if (!err) {
+if (ru && copy_to_user(ru, &r, sizeof(struct rusage)))
+return -EFAULT;
+}
+if (!infop)
+return err;
+
+user_access_begin();
+unsafe_put_user(signo, &infop->si_signo, Efault);
+unsafe_put_user(0, &infop->si_errno, Efault);
+unsafe_put_user(info.cause, &infop->si_code, Efault);
+unsafe_put_user(info.pid, &infop->si_pid, Efault);
+unsafe_put_user(info.uid, &infop->si_uid, Efault);
+unsafe_put_user(info.status, &infop->si_status, Efault);
+user_access_end();
+return err;
+Efault:
+user_access_end();
+return -EFAULT;
+}
+",0.0
+23,0.3801320493221283,1.0,False,23,1,21,    for (i = 0; isxdigit((unsigned char)a[i]); i++) ;,"int BN_hex2bn(BIGNUM **bn, const char *a)
+{
+BIGNUM *ret = NULL;
+BN_ULONG l = 0;
+int neg = 0, h, m, i, j, k, c;
+int num;
+
+if ((a == NULL) || (*a == '\0'))
+return (0);
+
+if (*a == '-') {
+neg = 1;
+a++;
+a++;
+}
+
+    for (i = 0; isxdigit((unsigned char)a[i]); i++) ;
+
+num = i + neg;
+if (bn == NULL)
+return (0);
+} else {
+ret = *bn;
+BN_zero(ret);
+}
+",0.0
+22,0.469477117061615,1.0,False,22,1,29,		zap = key->payload.data[0];,"int user_update(struct key *key, struct key_preparsed_payload *prep)
+{
+struct user_key_payload *upayload, *zap;
+size_t datalen = prep->datalen;
+int ret;
+
+ret = -EINVAL;
+if (datalen <= 0 || datalen > 32767 || !prep->data)
+goto error;
+
+/* construct a replacement payload */
+ret = -ENOMEM;
+upayload = kmalloc(sizeof(*upayload) + datalen, GFP_KERNEL);
+if (!upayload)
+goto error;
+
+upayload->datalen = datalen;
+memcpy(upayload->data, prep->data, datalen);
+
+/* check the quota and attach the new data */
+zap = upayload;
+
+ret = key_payload_reserve(key, datalen);
+
+if (ret == 0) {
+/* attach the new data, displacing the old */
+		zap = key->payload.data[0];
+rcu_assign_keypointer(key, upayload);
+key->expiry = 0;
+}
+
+if (zap)
+kfree_rcu(zap, rcu);
+
+error:
+return ret;
+}
+",0.0
+6,0.4016059339046478,1.0,False,6,1,41,      p += ( map->rows - 1 ) * map->pitch;,"gray_render_span( int             y,
+int             count,
+const FT_Span*  spans,
+PWorker         worker )
+{
+unsigned char*  p;
+FT_Bitmap*      map = &worker->target;
+
+
+/* first of all, compute the scanline offset */
+p = (unsigned char*)map->buffer - y * map->pitch;
+if ( map->pitch >= 0 )
+      p += ( map->rows - 1 ) * map->pitch;
+
+for ( ; count > 0; count--, spans++ )
+{
+unsigned char  coverage = spans->coverage;
+
+
+if ( coverage )
+{
+/* For small-spans it is faster to do it by ourselves than
+* calling `memset'.  This is mainly due to the cost of the
+* function call.
+*/
+if ( spans->len >= 8 )
+FT_MEM_SET( p + spans->x, (unsigned char)coverage, spans->len );
+else
+{
+unsigned char*  q = p + spans->x;
+
+
+switch ( spans->len )
+{
+case 7: *q++ = (unsigned char)coverage;
+case 6: *q++ = (unsigned char)coverage;
+case 5: *q++ = (unsigned char)coverage;
+case 4: *q++ = (unsigned char)coverage;
+case 3: *q++ = (unsigned char)coverage;
+case 2: *q++ = (unsigned char)coverage;
+case 1: *q   = (unsigned char)coverage;
+default:
+;
+}
+}
+}
+}
+}
+",0.0
+20,0.45644280314445496,1.0,False,20,5,42,"	if (!port->interrupt_in_urb) {/~/		dev_err(&port->dev, ""%s - interrupt_in_urb is empty!\n"",/~/			__func__);/~/		return -1;/~/	}","static int cypress_open(struct tty_struct *tty, struct usb_serial_port *port)
+{
+struct cypress_private *priv = usb_get_serial_port_data(port);
+struct usb_serial *serial = port->serial;
+unsigned long flags;
+int result = 0;
+
+if (!priv->comm_is_ok)
+return -EIO;
+
+/* clear halts before open */
+usb_clear_halt(serial->dev, 0x81);
+usb_clear_halt(serial->dev, 0x02);
+
+spin_lock_irqsave(&priv->lock, flags);
+/* reset read/write statistics */
+priv->bytes_in = 0;
+priv->bytes_out = 0;
+priv->cmd_count = 0;
+priv->rx_flags = 0;
+spin_unlock_irqrestore(&priv->lock, flags);
+
+/* Set termios */
+cypress_send(port);
+
+if (tty)
+cypress_set_termios(tty, port, &priv->tmp_termios);
+
+/* setup the port and start reading from the device */
+	if (!port->interrupt_in_urb) {
+		dev_err(&port->dev, ""%s - interrupt_in_urb is empty!\n"",
+			__func__);
+		return -1;
+	}
+usb_fill_int_urb(port->interrupt_in_urb, serial->dev,
+usb_rcvintpipe(serial->dev, port->interrupt_in_endpointAddress),
+port->interrupt_in_urb->transfer_buffer,
+port->interrupt_in_urb->transfer_buffer_length,
+cypress_read_int_callback, port, priv->read_urb_interval);
+result = usb_submit_urb(port->interrupt_in_urb, GFP_KERNEL);
+
+if (result) {
+dev_err(&port->dev,
+""%s - failed submitting read urb, error %d\n"",
+__func__, result);
+cypress_set_dead(port);
+}
+
+return result;
+} /* cypress_open */
+",0.0
+19,0.4722849130630493,1.0,False,19,3,31,    previous_context->MakeCurrent(previous_surface.get());/~/  } else {/~/    context_->ReleaseCurrent(this);,"void GLSurfaceOzoneSurfacelessSurfaceImpl::Destroy() {
+if (!context_)
+return;
+scoped_refptr<gfx::GLContext> previous_context = gfx::GLContext::GetCurrent();
+scoped_refptr<gfx::GLSurface> previous_surface;
+
+bool was_current = previous_context && previous_context->IsCurrent(nullptr) &&
+gfx::GLSurface::GetCurrent() == this;
+if (!was_current) {
+// Only take a reference to previous surface if it's not |this|
+// because otherwise we can take a self reference from our own dtor.
+previous_surface = gfx::GLSurface::GetCurrent();
+context_->MakeCurrent(this);
+}
+
+glBindFramebufferEXT(GL_FRAMEBUFFER, 0);
+if (fbo_) {
+glDeleteTextures(arraysize(textures_), textures_);
+for (auto& texture : textures_)
+texture = 0;
+glDeleteFramebuffersEXT(1, &fbo_);
+fbo_ = 0;
+}
+for (auto image : images_) {
+if (image)
+image->Destroy(true);
+}
+
+if (!was_current) {
+    previous_context->MakeCurrent(previous_surface.get());
+  } else {
+    context_->ReleaseCurrent(this);
+}
+}
+",0.0
+16,0.40969040989875793,1.0,False,16,3,13,"	g_file_set_contents(""/tmp/rs-filter-graph"", str->str, str->len, NULL);/~/	if (0 != system(""dot -Tpng >/tmp/rs-filter-graph.png </tmp/rs-filter-graph""))/~/	if (0 != system(""gnome-open /tmp/rs-filter-graph.png""))","rs_filter_graph(RSFilter *filter)
+{
+g_return_if_fail(RS_IS_FILTER(filter));
+GString *str = g_string_new(""digraph G {\n"");
+
+rs_filter_graph_helper(str, filter);
+
+g_string_append_printf(str, ""}\n"");
+	g_file_set_contents(""/tmp/rs-filter-graph"", str->str, str->len, NULL);
+
+	if (0 != system(""dot -Tpng >/tmp/rs-filter-graph.png </tmp/rs-filter-graph""))
+g_warning(""Calling dot failed"");
+	if (0 != system(""gnome-open /tmp/rs-filter-graph.png""))
+g_warning(""Calling gnome-open failed."");
+
+g_string_free(str, TRUE);
+}
+",0.0
+13,0.39348289370536804,1.0,False,13,1,28,	ext2_xattr_put_super(sb);,"static void ext2_put_super (struct super_block * sb)
+{
+int db_count;
+int i;
+struct ext2_sb_info *sbi = EXT2_SB(sb);
+
+dquot_disable(sb, -1, DQUOT_USAGE_ENABLED | DQUOT_LIMITS_ENABLED);
+
+	ext2_xattr_put_super(sb);
+if (!(sb->s_flags & MS_RDONLY)) {
+struct ext2_super_block *es = sbi->s_es;
+
+spin_lock(&sbi->s_lock);
+es->s_state = cpu_to_le16(sbi->s_mount_state);
+spin_unlock(&sbi->s_lock);
+ext2_sync_super(sb, es, 1);
+}
+db_count = sbi->s_gdb_count;
+for (i = 0; i < db_count; i++)
+if (sbi->s_group_desc[i])
+brelse (sbi->s_group_desc[i]);
+kfree(sbi->s_group_desc);
+kfree(sbi->s_debts);
+percpu_counter_destroy(&sbi->s_freeblocks_counter);
+percpu_counter_destroy(&sbi->s_freeinodes_counter);
+percpu_counter_destroy(&sbi->s_dirs_counter);
+brelse (sbi->s_sbh);
+sb->s_fs_info = NULL;
+kfree(sbi->s_blockgroup_lock);
+kfree(sbi);
+}
+",0.0
+5,0.4057849645614624,1.0,False,5,1,10,"	pgprot_t prot = __get_dma_pgprot(attrs, pgprot_kernel);","void *arm_dma_alloc(struct device *dev, size_t size, dma_addr_t *handle,
+gfp_t gfp, struct dma_attrs *attrs)
+{
+	pgprot_t prot = __get_dma_pgprot(attrs, pgprot_kernel);
+void *memory;
+
+if (dma_alloc_from_coherent(dev, size, handle, &memory))
+return memory;
+
+return __dma_alloc(dev, size, handle, gfp, prot, false,
+__builtin_return_address(0));
+}
+",0.0
+11,0.44456592202186584,1.0,False,11,2,58,		mutex_lock(&tu->ioctl_lock);/~/		mutex_unlock(&tu->ioctl_lock);,"static ssize_t snd_timer_user_read(struct file *file, char __user *buffer,
+size_t count, loff_t *offset)
+{
+struct snd_timer_user *tu;
+long result = 0, unit;
+int qhead;
+int err = 0;
+
+tu = file->private_data;
+unit = tu->tread ? sizeof(struct snd_timer_tread) : sizeof(struct snd_timer_read);
+spin_lock_irq(&tu->qlock);
+while ((long)count - result >= unit) {
+while (!tu->qused) {
+wait_queue_t wait;
+
+if ((file->f_flags & O_NONBLOCK) != 0 || result > 0) {
+err = -EAGAIN;
+goto _error;
+}
+
+set_current_state(TASK_INTERRUPTIBLE);
+init_waitqueue_entry(&wait, current);
+add_wait_queue(&tu->qchange_sleep, &wait);
+
+spin_unlock_irq(&tu->qlock);
+schedule();
+spin_lock_irq(&tu->qlock);
+
+remove_wait_queue(&tu->qchange_sleep, &wait);
+
+if (tu->disconnected) {
+err = -ENODEV;
+goto _error;
+}
+if (signal_pending(current)) {
+err = -ERESTARTSYS;
+goto _error;
+}
+}
+
+qhead = tu->qhead++;
+tu->qhead %= tu->queue_size;
+tu->qused--;
+spin_unlock_irq(&tu->qlock);
+
+		mutex_lock(&tu->ioctl_lock);
+if (tu->tread) {
+if (copy_to_user(buffer, &tu->tqueue[qhead],
+sizeof(struct snd_timer_tread)))
+err = -EFAULT;
+} else {
+if (copy_to_user(buffer, &tu->queue[qhead],
+sizeof(struct snd_timer_read)))
+err = -EFAULT;
+}
+		mutex_unlock(&tu->ioctl_lock);
+
+spin_lock_irq(&tu->qlock);
+if (err < 0)
+goto _error;
+result += unit;
+buffer += unit;
+}
+_error:
+spin_unlock_irq(&tu->qlock);
+return result > 0 ? result : err;
+}
+",0.0
+10,0.4015105664730072,1.0,False,10,1,6,	if (stringset == ETH_SS_STATS),"static int hns_xgmac_get_sset_count(int stringset)
+{
+	if (stringset == ETH_SS_STATS)
+return ARRAY_SIZE(g_xgmac_stats_string);
+
+return 0;
+}
+",0.0
+9,0.43664902448654175,1.0,False,9,5,60,"  bool is_tld_ascii = true;/~/  if (last_dot != base::StringPiece::npos &&/~/      host.substr(last_dot).starts_with("".xn--"")) {/~/    is_tld_ascii = false;/~/          input16.data() + component_start, component_length, is_tld_ascii,","IDNConversionResult IDNToUnicodeWithAdjustmentsImpl(
+base::StringPiece host,
+base::OffsetAdjuster::Adjustments* adjustments,
+bool enable_spoof_checks) {
+if (adjustments)
+adjustments->clear();
+// Convert the ASCII input to a base::string16 for ICU.
+base::string16 input16;
+input16.reserve(host.length());
+input16.insert(input16.end(), host.begin(), host.end());
+
+  bool is_tld_ascii = true;
+size_t last_dot = host.rfind('.');
+  if (last_dot != base::StringPiece::npos &&
+      host.substr(last_dot).starts_with("".xn--"")) {
+    is_tld_ascii = false;
+}
+
+IDNConversionResult result;
+// Do each component of the host separately, since we enforce script matching
+// on a per-component basis.
+base::string16 out16;
+for (size_t component_start = 0, component_end;
+component_start < input16.length();
+component_start = component_end + 1) {
+// Find the end of the component.
+component_end = input16.find('.', component_start);
+if (component_end == base::string16::npos)
+component_end = input16.length();  // For getting the last component.
+size_t component_length = component_end - component_start;
+size_t new_component_start = out16.length();
+bool converted_idn = false;
+if (component_end > component_start) {
+// Add the substring that we just found.
+bool has_idn_component = false;
+converted_idn = IDNToUnicodeOneComponent(
+          input16.data() + component_start, component_length, is_tld_ascii,
+enable_spoof_checks, &out16, &has_idn_component);
+result.has_idn_component |= has_idn_component;
+}
+size_t new_component_length = out16.length() - new_component_start;
+
+if (converted_idn && adjustments) {
+adjustments->push_back(base::OffsetAdjuster::Adjustment(
+component_start, component_length, new_component_length));
+}
+
+// Need to add the dot we just found (if we found one).
+if (component_end < input16.length())
+out16.push_back('.');
+}
+
+result.result = out16;
+
+// Leave as punycode any inputs that spoof top domains.
+if (result.has_idn_component) {
+result.matching_top_domain =
+g_idn_spoof_checker.Get().GetSimilarTopDomain(out16);
+if (enable_spoof_checks && !result.matching_top_domain.domain.empty()) {
+if (adjustments)
+adjustments->clear();
+result.result = input16;
+}
+}
+
+return result;
+}
+",0.0
+35,0.45701685547828674,1.0,False,35,3,43,    nbytes = (long) rep.length << 2;/~/    nrects = rep.length >> 1;/~/    rects = Xmalloc (nrects * sizeof (XRectangle));,"XFixesFetchRegionAndBounds (Display	    *dpy,
+XserverRegion   region,
+int		    *nrectanglesRet,
+XRectangle	    *bounds)
+{
+XFixesExtDisplayInfo	*info = XFixesFindDisplay (dpy);
+xXFixesFetchRegionReq	*req;
+xXFixesFetchRegionReply	rep;
+XRectangle			*rects;
+int    			nrects;
+long    			nbytes;
+long			nread;
+
+XFixesCheckExtension (dpy, info, NULL);
+LockDisplay (dpy);
+GetReq (XFixesFetchRegion, req);
+req->reqType = info->codes->major_opcode;
+req->xfixesReqType = X_XFixesFetchRegion;
+req->region = region;
+*nrectanglesRet = 0;
+if (!_XReply (dpy, (xReply *) &rep, 0, xFalse))
+{
+UnlockDisplay (dpy);
+SyncHandle ();
+return NULL;
+}
+bounds->x = rep.x;
+bounds->y = rep.y;
+bounds->y = rep.y;
+bounds->width = rep.width;
+bounds->height = rep.height;
+    nbytes = (long) rep.length << 2;
+    nrects = rep.length >> 1;
+    rects = Xmalloc (nrects * sizeof (XRectangle));
+if (!rects)
+{
+_XEatDataWords(dpy, rep.length);
+_XEatData (dpy, (unsigned long) (nbytes - nread));
+}
+UnlockDisplay (dpy);
+SyncHandle();
+*nrectanglesRet = nrects;
+return rects;
+}
+",0.0
