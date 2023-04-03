@@ -10,7 +10,7 @@ Program dubbed SVG with our novel Poacher Flow Edges. We use RoBERTa to generate
 
 Graph construction            |  Graph neural networks with residual connection
 :-------------------------:|:-------------------------:
-![](https://github.com/pial08/SemVulDet/blob/main/figures/graph.png)  |  ![](https://github.com/pial08/SemVulDet/blob/main/figures/arch.png)
+![](https://github.com/pial08/Threat_Detection_Modeling/blob/main/figures/graph.png)  |  ![](https://github.com/pial08/Threat_Detection_Modeling/blob/main/figures/arch.png)
 
 
 #### Requirements
