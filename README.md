@@ -1,6 +1,6 @@
 
 
-# An Unbiased Transformer Source Code Learning with Semantic Vulnerability Graph
+# Learning Source Code Vulnerability Localization and Causation with Explainability
 
 This code provides the implementation of *RoBERTa-PFGCN* as described in out paper, a method to generate Graph of 
 Program dubbed SVG with our novel Poacher Flow Edges. We use RoBERTa to generate embeddings and GCN for vulnerability detection and classification.
