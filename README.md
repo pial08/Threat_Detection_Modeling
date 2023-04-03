@@ -4,13 +4,24 @@
 
 ### This is a second test
 
-This code provides the implementation of *RoBERTa-PFGCN* as described in out paper, a method to generate Graph of 
-Program dubbed SVG with our novel Poacher Flow Edges. We use RoBERTa to generate embeddings and GCN for vulnerability detection and classification.
+The widespread adoption of smart connected IoT devices
+underscores the need to address code vulnerabilities to protect secu-
+rity and privacy. These code vulnerabilities can cause unauthorized ac-
+cess, data breaches, network disruptions, and privacy violations. In this
+paper, we address the challenge of identifying source code vulnerabil-
+ities by offering clear code vulnerability indicators and causation. In
+our system, we create the code property graph (CPG) of the entire
+source repository. We perform a thorough analysis by extracting func-
+tions from the source code and classifying vulnerable functions. Subse-
+quently, we pass the vulnerable functions through an ensemble trans-
+former and graph model to pinpoint the vulnerability’s location and
+provide the root cause of the existence of the vulnerability through ex-
+plainability. We demonstrate the effectiveness of our proposed system
+by detecting 24 N-day and 3 zero-day vulnerabilities by analyzing six
+IoT repositories, including TinyOS, Contiki, Zephyr, FreeRTOS, RIOT-
+OS, and Raspberry Pi OS from GitHub
 
 
-Graph construction            |  Graph neural networks with residual connection
-:-------------------------:|:-------------------------:
-![](https://github.com/pial08/Threat_Detection_Modeling/blob/main/figures/cs1.pdf)  |  ![](https://github.com/pial08/Threat_Detection_Modeling/blob/master/figures/arch.png)
 
 
 #### Requirements
@@ -42,47 +53,49 @@ pip install -r requirements.txt
 The repository is partially based on [CodeXGLUE](https://github.com/microsoft/CodeXGLUE/tree/main/Code-Code/Defect-detection).
 
 
-### Training and Evaluation
-The following command should be used for training, testing and evaluation. Please set the ```--output_dir``` to the address where the model will be saved. We have also compiled a shell file with the same command for ease of use for the practitioners. Please put the location/address of train, evaluation and test file directory for the parameters
-```--train_data_file```, ```--eval_data_file``` and ```--test_data_file```. 
+
 
 
 Please run the following commands:
 
 ```shell
-cd code
+cd lineloc
 
 ./run.sh
 
 or,
 
-python run.py --output_dir=<output_directory> --model_type=roberta --tokenizer_name=microsoft/graphcodebert-base --model_name_or_path=microsoft/graphcodebert-base \
-	--do_eval --do_test --do_train --train_data_file=<training_data_directory> --eval_data_file=<eval_data_directory> --test_data_file=<test_data_directory> \
-	--block_size 400 --train_batch_size 512 --eval_batch_size 512 --max_grad_norm 1.0 --evaluate_during_training \
-	--gnn ReGCN --learning_rate 5e-4 --epoch 100 --hidden_size 512 --num_classes 2 --model_checkpoint <saved_directory> --num_GNN_layers 2 --format uni --window_size 5 \
-	--seed 123456 2>&1 | tee $logp/training_log.txt
+python linevul_main.py \
+  --model_name=12heads_linevul_model.bin \
+  --output_dir=./saved_models \
+  --model_type=roberta \
+  --tokenizer_name=microsoft/codebert-base \
+  --model_name_or_path=microsoft/codebert-base \
+  --do_train \
+  --do_test \
+  --do_sorting_by_line_scores \
+  --learning_rate=6e-6 \
+  --weight_decay=0.9 \
+  --epochs=25 \
+  --effort_at_top_k=0.9 \
+  --top_k_recall_by_lines=0.01 \
+  --top_k_recall_by_pred_prob=0.2 \
+  --reasoning_method=all \
+  --train_data_file=../data/D2A_Dataset/train.csv \
+  --eval_data_file=../data/D2A_Dataset/val.csv \
+  --test_data_file=../data/D2A_Dataset/test.csv \
+  --block_size 512 \
+  --train_batch_size 16 \
+  --eval_batch_size 16 
 
 ```
 
-### Shell file parameters explaination
-Here we explain some of the important parameters we used for our application. 
 
-| Parameters | Default Values | Values | Description |
-| :---:    | :---:   |:---:                | :---: |
-| `--loss` | `focal` | *focal* or *weight* | Change parameters based on the usage of focal loss or weighted loss |
-| `--graph`| `SVG`   | *SVG* or *AST* | Change parameters based on the graph generation method |
-| `--alpha`| `0.1`   | 0-1 | The number should be a floating point |
-| `--gamma`| `2.0`   | 0-INF | Floating value ranging from 0 to infinity. If the value is 0, effect os gamma is ignored |
 
 
 ### Datasets
-- Please download our [VulF](https://drive.google.com/drive/folders/1d00kfEX6k1MhpxJtuFv5JqtlQTJfg03N?usp=sharing) dataset VulF directory.
+- Please download our [Dataset](https://drive.google.com/drive/folders/1zmTpSvyyC9usKiMu-kuEZHbF0_UqDeKw?usp=sharing) .
 
-- Our N-day and zero-day samples are also available in the previous link under *Testing* directory.
-- After downloading VulF dataset, please put it under the directory *data*.
-
-### Reproducibility
-In order to use our pre-trained model, please download our model from [here](https://drive.google.com/drive/folders/1d00kfEX6k1MhpxJtuFv5JqtlQTJfg03N?usp=sharing) under the Saved Model directory. After downloading, please set the value of the parameter `--model_checkpoint` to local directory you saved the pre-trained model.
 
 
 
