@@ -2,7 +2,6 @@
 
 # Learning Source Code Vulnerability Localization and Causation with Explainability
 
-### This is a second test
 
 The widespread adoption of smart connected IoT devices
 underscores the need to address code vulnerabilities to protect secu-
