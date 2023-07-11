@@ -1,24 +1,8 @@
 
 
-# Learning Source Code Vulnerability Localization and Causation with Explainability
+# Exploring IoT OS Vulnerabilities: Causative Insights Through Explainable Multi-Task LLM and Graph
 
-
-The widespread adoption of smart connected IoT devices
-underscores the need to address code vulnerabilities to protect secu-
-rity and privacy. These code vulnerabilities can cause unauthorized ac-
-cess, data breaches, network disruptions, and privacy violations. In this
-paper, we address the challenge of identifying source code vulnerabil-
-ities by offering clear code vulnerability indicators and causation. In
-our system, we create the code property graph (CPG) of the entire
-source repository. We perform a thorough analysis by extracting func-
-tions from the source code and classifying vulnerable functions. Subse-
-quently, we pass the vulnerable functions through an ensemble trans-
-former and graph model to pinpoint the vulnerability’s location and
-provide the root cause of the existence of the vulnerability through ex-
-plainability. We demonstrate the effectiveness of our proposed system
-by detecting 24 N-day and 3 zero-day vulnerabilities by analyzing six
-IoT repositories, including TinyOS, Contiki, Zephyr, FreeRTOS, RIOT-
-OS, and Raspberry Pi OS from GitHub
+The widespread adoption of smart connected IoT devices underscores the need to address code vulnerabilities to protect security and privacy. These code vulnerabilities can cause unauthorized access, data breaches, network disruptions, and privacy violations. In this paper, we address the challenge of fixing vulnerabilities with a Large Language Model (LLM) provided description designed to aid developers with lesser knowledge about code security to quickly and efficiently solve vulnerabilities. Moreover, complementing the description we further provide a method to classify and localize source code vulnerabilities by offering clear code vulnerability indicators, causation aiding developers in repairing the vulnerability. Our system creates the source repository's code property graph (CPG) to scan and split files into functions. We perform a thorough analysis by extracting functions from the source code, describe the vulnerability using a large language model and analyze the outcome with software developers and security experts to measure the description's usefulness. We further classify and localize vulnerable functions through an ensemble transformer and graph model and provide the root cause of the existence of the vulnerability through explainability. We demonstrate the effectiveness of our proposed system by detecting 24 N-day and 3 zero-day vulnerabilities by analyzing six IoT repositories, including TinyOS, Contiki, Zephyr, FreeRTOS, RIOT-OS, and Raspberry Pi OS from GitHub.
 
 
 
