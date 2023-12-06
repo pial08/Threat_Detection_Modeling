@@ -1,11 +1,12 @@
 
 
-# Exploring IoT OS Vulnerabilities: Causative Insights Through Explainable Multi-Task LLM and Graph
+# Causative Insights into Open Source Software Security using \\ Large Language Code Embeddings and Semantic Vulnerability Graph
 
-The widespread adoption of smart connected IoT devices underscores the need to address code vulnerabilities to protect security and privacy. These code vulnerabilities can cause unauthorized access, data breaches, network disruptions, and privacy violations. In this paper, we address the challenge of fixing vulnerabilities with a Large Language Model (LLM) provided description designed to aid developers with lesser knowledge about code security to quickly and efficiently solve vulnerabilities. Moreover, complementing the description we further provide a method to classify and localize source code vulnerabilities by offering clear code vulnerability indicators, causation aiding developers in repairing the vulnerability. Our system creates the source repository's code property graph (CPG) to scan and split files into functions. We perform a thorough analysis by extracting functions from the source code, describe the vulnerability using a large language model and analyze the outcome with software developers and security experts to measure the description's usefulness. We further classify and localize vulnerable functions through an ensemble transformer and graph model and provide the root cause of the existence of the vulnerability through explainability. We demonstrate the effectiveness of our proposed system by detecting 24 N-day and 3 zero-day vulnerabilities by analyzing six IoT repositories, including TinyOS, Contiki, Zephyr, FreeRTOS, RIOT-OS, and Raspberry Pi OS from GitHub.
+Open Source Software (OSS) security and resilience are worldwide phenomena hampering economic and technological innovation. OSS vulnerabilities can cause unauthorized access, data breaches, network disruptions, and privacy violations, rendering any benefits worthless. While recent deep-learning techniques have shown great promise in identifying and localizing vulnerabilities in source code, it is unclear how effective these research techniques are from a usability perspective due to a lack of proper methodological analysis of how beneficial these are to the end users. Usually, these methods offload a developer's task of classifying and localizing vulnerable code; still, a reasonable study to measure the actual effectiveness of these systems has yet to be conducted. To address the challenge of proper developer training from the prior methods, we propose a system to link vulnerabilities to their root cause, thereby intuitively educating the developers to code more securely. Furthermore, we provide a comprehensive usability study to test the effectiveness of our system in fixing vulnerabilities and its capability to assist developers in writing more secure code. We demonstrate the effectiveness of our system by showing its efficacy in helping developers fix source code with vulnerabilities. Our study shows a 24\% improvement in code repair capabilities compared to previous methods. We also show that, when trained by our system, on average, approximately 9\% of the developers naturally tend to write more secure code with fewer vulnerabilities. 
 
+## System Architecture
 
-
+![](https://github.com/pial08/SemVulDet/blob/main/figures/t5-gcn.png)
 
 #### Requirements
 - Python 	3.7
@@ -73,11 +74,6 @@ python linevul_main.py \
 
 ```
 
-
-
-
-### Datasets
-- Please download our [Dataset](https://drive.google.com/drive/folders/1zmTpSvyyC9usKiMu-kuEZHbF0_UqDeKw?usp=sharing) .
 
 
 
