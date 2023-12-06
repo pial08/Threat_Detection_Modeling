@@ -6,7 +6,7 @@ Open Source Software (OSS) security and resilience are worldwide phenomena hampe
 
 ## System Architecture
 
-[Arch](https://github.com/pial08/SemVulDet/blob/main/figures/t5-gcn.png)
+[](https://github.com/pial08/Threat_Detection_Modeling/blob/main/figures/t5-gcn.png)
 
 #### Requirements
 - Python 	3.7
