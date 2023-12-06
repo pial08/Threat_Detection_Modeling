@@ -1,12 +1,12 @@
 
 
-# Causative Insights into Open Source Software Security using \\ Large Language Code Embeddings and Semantic Vulnerability Graph
+# Causative Insights into Open Source Software Security using Large Language Code Embeddings and Semantic Vulnerability Graph
 
 Open Source Software (OSS) security and resilience are worldwide phenomena hampering economic and technological innovation. OSS vulnerabilities can cause unauthorized access, data breaches, network disruptions, and privacy violations, rendering any benefits worthless. While recent deep-learning techniques have shown great promise in identifying and localizing vulnerabilities in source code, it is unclear how effective these research techniques are from a usability perspective due to a lack of proper methodological analysis of how beneficial these are to the end users. Usually, these methods offload a developer's task of classifying and localizing vulnerable code; still, a reasonable study to measure the actual effectiveness of these systems has yet to be conducted. To address the challenge of proper developer training from the prior methods, we propose a system to link vulnerabilities to their root cause, thereby intuitively educating the developers to code more securely. Furthermore, we provide a comprehensive usability study to test the effectiveness of our system in fixing vulnerabilities and its capability to assist developers in writing more secure code. We demonstrate the effectiveness of our system by showing its efficacy in helping developers fix source code with vulnerabilities. Our study shows a 24\% improvement in code repair capabilities compared to previous methods. We also show that, when trained by our system, on average, approximately 9\% of the developers naturally tend to write more secure code with fewer vulnerabilities. 
 
 ## System Architecture
 
-![Architecture](https://github.com/pial08/Threat_Detection_Modeling/blob/main/figures/t5-gcn.png)
+![Architecture](https://github.com/pial08/Threat_Detection_Modeling/blob/master/figures/t5-gcn.png)
 
 
 #### Requirements
