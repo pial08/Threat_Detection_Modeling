@@ -106,7 +106,7 @@ class GNNReGVD(nn.Module):
         adj_mask = torch.from_numpy(adj_mask)
         adj_feature = torch.from_numpy(adj_feature)
 
-        #test by Nafis -- Issue: GPU memory overflow
+        #test by 00 -- Issue: GPU memory overflow
 
         #new_encoder = nn.Sequential(*list(self.encoder.children())[:-1])
         #encoder_output = new_encoder(input_ids)[0]

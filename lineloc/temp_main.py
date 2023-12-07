@@ -131,7 +131,7 @@ class TextDataset(Dataset):
         # add the tokens to the tokenizer vocabulary
         tokenizer.add_tokens(list(new_tokens))
 
-        # Line added by Nafis
+        # Line added by 00
         #df = df.head(1000)
         
         df.fillna('', inplace=True)
@@ -384,7 +384,7 @@ def evaluate(args, model, tokenizer, eval_dataset, eval_when_training=False):
     logits=[]  
     y_trues=[]
 
-    # For line level evaluation: Nafis
+    # For line level evaluation: 00
     y_lines_true = []
     locLogits = []
 
@@ -449,7 +449,7 @@ def test(args, model, tokenizer, test_dataset, best_threshold=0.5):
     logits=[]  
     y_trues=[]
 
-    # For line level evaluation: Nafis
+    # For line level evaluation: 00
     y_lines_true = []
     locLogits = []
 
@@ -519,7 +519,7 @@ def test(args, model, tokenizer, test_dataset, best_threshold=0.5):
         print("Sorting by line scores")
         for reasoning_method in all_reasoning_method:
             dataloader = DataLoader(test_dataset, sampler=test_sampler, batch_size=1, num_workers=0)
-            # Updated by Nafis
+            # Updated by 00
             #dataloader = test_dataloader
             #dataloader = DataLoader(test_dataset, sampler=test_sampler, batch_size=8, num_workers=0)
 
@@ -1186,7 +1186,7 @@ def line_level_localization(flaw_lines: str, tokenizer, model, mini_batch, origi
         word_attr_scores = clean_word_attr_scores(word_attr_scores=word_attr_scores)
         all_lines_score, flaw_line_indices = get_all_lines_score(word_attr_scores, verified_flaw_lines)
 
-        # Added by Nafis
+        # Added by 00
         print(all_lines_score)
         print(len(all_lines_score), len(original_lines))
 
